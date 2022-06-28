@@ -1,0 +1,9 @@
+<h1>{{(reseller$ | async)?.name}}</h1>
+
+<div *ngIf="businesses$ | async as businesses">
+
+  <mat-card *ngFor="let business of businesses">
+    {{business.name}}
+  </mat-card>
+
+</div>

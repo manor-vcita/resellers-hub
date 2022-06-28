@@ -1,0 +1,10 @@
+export interface IBusinessFirestoreRecord {
+  id: string;
+  name: string;
+  createdAt: Date | any;
+  resellerId: string;
+  hubId: string;
+  isTemplate: boolean;
+  baseTemplateAccountId: string | null;
+  baseTemplateAccountName: string | null;
+}

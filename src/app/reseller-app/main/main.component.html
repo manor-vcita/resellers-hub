@@ -1,0 +1,12 @@
+<app-top-nav></app-top-nav>
+<mat-drawer-container style="height:100%;">
+  <mat-drawer mode="side" opened
+    (mouseover)="showMenuTexts = true"
+    (mouseleave)="showMenuTexts = false"
+  >
+  <app-side-nav></app-side-nav>
+</mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

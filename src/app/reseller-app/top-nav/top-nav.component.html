@@ -1,0 +1,16 @@
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Reseller logo</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="resellerUserMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #resellerUserMenu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

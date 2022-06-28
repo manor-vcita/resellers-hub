@@ -1,0 +1,33 @@
+<mat-card *ngIf="business$ | async as business"
+  style="width: 300px; height: 400px"
+>
+  <mat-card-title>{{business.business.name}}</mat-card-title>
+  <mat-card-subtitle>{{business.business.id}}</mat-card-subtitle>
+  <mat-card-subtitle>{{business.meta.plan.plan_name}}</mat-card-subtitle>
+  <mat-divider></mat-divider>
+  <mat-card-content style="padding-top: 16px;">
+
+    <div fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="8px">
+
+        <div>Created at: {{business.business.created_at | date}}</div>
+        <div>In setup: {{business.meta.in_setup}}</div>
+        <div *ngIf="business.business.business_category">Category {{business.business.business_category}}</div>
+        <div>Clients: {{(clients$ | async)?.total}}</div>
+        <div>Appointments: {{(appointments$ | async)?.total}}</div>
+        <div>Payments: {{(payments$ | async)?.total}}</div>
+        <div>Campaigns: {{(campaigns$ | async)?.total}}</div>
+        <div>Staff members: {{(staffMembers$ | async)?.length}} (out of {{business.meta.plan.staff_slots}} available seats)</div>
+
+        <!-- <div fxLayout="row" fxLayoutAlign="center end" fxLayoutGap="8px" fxFlexAlign="end">
+          <ngx-charts-number-card
+            [view]="[140, 120]"
+            [results]="[{name: 'Clients', value: clients}]"
+            [cardColor]="cardColor"
+          >
+          </ngx-charts-number-card>
+        </div> -->
+    </div>
+
+
+  </mat-card-content>
+</mat-card>

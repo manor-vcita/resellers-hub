@@ -1,0 +1,14 @@
+<div *ngIf="partner$ | async as partner">
+<h3>{{partner.name}}</h3>
+<h3>{{partner.createdAt.toDate() | date}}</h3>
+<h3>{{partner.status}}</h3>
+</div>
+
+<div *ngIf="resellers$ | async as resellers">
+<mat-card *ngFor="let reseller of resellers" routerLink="resellers/{{reseller.id}}">
+  <mat-card-content>
+      {{reseller.name}}
+      {{reseller.createdAt.toDate() | date}}
+    </mat-card-content>
+  </mat-card>
+</div>

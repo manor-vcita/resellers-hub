@@ -1,0 +1,59 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>Resellers</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="accent" (click)="showNewResellerForm = !showNewResellerForm">{{showNewResellerForm ? 'Discard' : 'Add Reseller'}}</button>
+    <mat-card
+      class="stripe-shadow-1"
+      *ngIf="showNewResellerForm"
+      style="position: absolute; top: 60px; right: 24px; z-index: 1000; width: fit-content;  height: fit-content;"
+    >
+      <mat-card-content style="padding: 16px; height: 100%;">
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="24px" style="padding: 16px; height: 100%;">
+          <form [formGroup]="createResellerForm" fxLayout="column" fxLayoutAlign="start center" [style.filter]="progress ? 'blur(3px)' : ''">
+            <mat-form-field appearance="outline">
+              <mat-label>Reseller's name</mat-label>
+              <input matInput formControlName="resellerName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Admin first name</mat-label>
+              <input matInput formControlName="resellerAdminFirstName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Admin last name</mat-label>
+              <input matInput formControlName="resellerAdminLastName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Admin user email</mat-label>
+              <input matInput formControlName="email">
+            </mat-form-field>
+            <mat-slide-toggle fxFlexAlign="start" formControlName="sendInvite">Send invite</mat-slide-toggle>
+          </form>
+          <button mat-raised-button color="accent" (click)="createReseller()" style="width: 100%;" [disabled]="createResellerForm.status === 'INVALID'">Add Reseller</button>
+          <div *ngIf="progress" style="position: absolute; top: 0px; right: 0px; height: 100%; width: 100%; z-index: 1000; background-color: rgba(162, 157, 157, 0.3);" fxLayout="row" fxLayoutAlign="center center">
+            <mat-spinner></mat-spinner>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div *ngIf="!isLoadingPage" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px grid" style="padding: 16px;">
+  <div *ngFor="let reseller of resellers$ | async">
+      <mat-card
+        style="width: 300px; height: 120px; border-radius: 8px;"
+        (mouseenter)="reseller.hover = true"
+        (mouseleave)="reseller.hover = false"
+        [ngClass]="reseller.hover ? 'stripe-shadow-1' : ''"
+      >
+          <mat-card-title class="primary-color center-card-header">{{reseller.name}}</mat-card-title>
+          <mat-card-content>
+          <mat-divider style="margin-top: 16px;"></mat-divider>
+          <button *ngIf="reseller.hover" mat-icon-button color="primary" routerLink="{{reseller.id}}" style="position: absolute; bottom: 24px; right: 24px;"><mat-icon>launch</mat-icon></button>
+        </mat-card-content>
+      </mat-card>
+  </div>
+
+</div>
+
+<mat-spinner *ngIf="isLoadingPage"></mat-spinner>

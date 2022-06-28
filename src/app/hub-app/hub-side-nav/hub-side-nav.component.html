@@ -1,0 +1,24 @@
+<div
+  (mouseover)="showMenuTexts = true"
+  (mouseleave)="showMenuTexts = false"
+  fxLayout="column" fxLayoutAlign="start start"
+  style="height: 100%;"
+>
+
+  <div
+    *ngFor="let item of sideNavItems; let i = index;"
+    fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px"
+    class="menu-item"
+    (mouseover)="item.hover = true"
+    (mouseleave)="item.hover = false"
+    (click)="toggleDefaultMessage(false); selectedNavItem = i"
+    [ngClass]="{'selected-item' : selectedNavItem === i}"
+    [routerLink]="item.route"
+  >
+    <button mat-icon-button color="accent">
+      <mat-icon>{{item.icon}}</mat-icon>
+    </button>
+    <div *ngIf="showMenuTexts" class="secondary-color">{{item.name}}</div>
+  </div>
+
+</div>

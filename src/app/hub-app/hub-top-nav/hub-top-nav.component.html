@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span>Partner name Hub</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="hubUserMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #hubUserMenu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

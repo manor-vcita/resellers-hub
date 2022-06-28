@@ -1,0 +1,53 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>{{account.name}}</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="accent" (click)="loginAs()">Login As</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div style="padding: 16px;">
+  <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="32px">
+
+
+    <mat-card class="account-cards">
+      <mat-card-header>
+        <mat-card-title>Account details</mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content class="account-cards-content">
+          <div>{{account.name}}</div>
+          <div>{{account.createdAt | date}}</div>
+          <div>{{account.accountManager}}</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="account-cards">
+      <mat-card-header>
+        <mat-card-title>Subscription</mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content class="account-cards-content">
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="32px">
+          <div>{{account.subscription}}</div>
+          <button mat-raised-button color="accent">Change Subscription</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+
+    <mat-card class="account-cards">
+      <mat-card-header>
+        <mat-card-title>Activity</mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content class="account-cards-content">
+        <h3>Activity info and graphs</h3>
+      </mat-card-content>
+    </mat-card>
+
+    <button fxFlexAlign="end" mat-raised-button color="warn">Delete Account</button>
+
+  </div>
+
+</div>

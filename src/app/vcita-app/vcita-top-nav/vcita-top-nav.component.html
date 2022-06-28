@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span>Partners Hub</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="vcitaUserMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #vcitaUserMenu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

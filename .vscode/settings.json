@@ -1,0 +1,24 @@
+{
+  "sqltools.connections": [
+    {
+      "authenticator": "SNOWFLAKE",
+      "ocspOptions": {
+        "ocspFailOpen": true
+      },
+      "snowflakeOptions": {
+        "clientSessionKeepAlive": true,
+        "clientSessionKeepAliveHeartbeatFrequency": 3600,
+        "role": "ETL_ROLE",
+        "schema": "PUBLIC"
+      },
+      "previewLimit": 50,
+      "driver": "Snowflake",
+      "name": "vcita-snowflake",
+      "account": "km40947.us-east-1",
+      "username": "Manor",
+      "password": "Frankel*50",
+      "database": "DATA_WAREHOUSE_DB",
+      "warehouse": "COMPUTE_WH"
+    }
+  ]
+}

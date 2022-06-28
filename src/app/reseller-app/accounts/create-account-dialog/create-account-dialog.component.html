@@ -1,0 +1,65 @@
+<div class="mat-typography" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px" style="height: 100%;">
+
+  <!-- <div style="height:100%; background-color: bisque;"></div> -->
+
+  <form [formGroup]="createAccountForm">
+
+      <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="16px">
+
+        <div fxLayout="row" fxLayoutAlign="space-evenly start" fxLayoutGap="32px" >
+          <mat-form-field appearance="outline">
+            <mat-label>Account name</mat-label>
+            <input matInput formControlName="businessName">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="adminEmail">
+          </mat-form-field>
+
+        </div>
+
+        <!-- <h2>Account information</h2>
+        <mat-form-field appearance="outline">
+          <mat-label>Business phone</mat-label>
+          <input matInput formControlName="businessPhone">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Website URL</mat-label>
+          <input matInput formControlName="businessWebsiteUrl">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Business address</mat-label>
+          <input matInput formControlName="businessAddress">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Short description</mat-label>
+          <textarea matInput formControlName="businessShortDescription"></textarea>
+        </mat-form-field>
+      </div>
+
+      <mat-divider vertical="true" style="width: 3px; height: fit-content;"></mat-divider>
+
+      <div fxLayout="column" fxLayoutAlign="end start" fxLayoutGap="16px">
+        <h2>Admin user</h2>
+        <mat-form-field appearance="outline">
+          <mat-label>First name</mat-label>
+          <input matInput formControlName="adminFirstName">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Last name</mat-label>
+          <input matInput formControlName="adminLastName">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="adminPhone">
+        </mat-form-field>
+      </div> -->
+
+      </div>
+
+    <button mat-raised-button color="primary">Create Account</button>
+
+
+  </form>
+</div>

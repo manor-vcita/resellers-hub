@@ -1,0 +1,2 @@
+1. Show account activity info (number of meetings, clients, etc.)
+2. Creating a user management page for each app

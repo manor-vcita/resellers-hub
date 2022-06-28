@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "reseller-c4058"
+  },
+  "targets": {
+    "reseller-c4058": {
+      "hosting": {
+        "vcita-hub": [
+          "reseller-c4058"
+        ]
+      }
+    }
+  }
+}

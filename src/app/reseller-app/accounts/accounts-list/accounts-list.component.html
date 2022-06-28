@@ -1,0 +1,57 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Accounts</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="accent" (click)="showNewAccountForm = !showNewAccountForm">{{showNewAccountForm ? 'Discard' : 'New Account'}}</button>
+    <mat-card *ngIf="showNewAccountForm" style="position: absolute; top: 60px; right: 24px; z-index: 999;">
+      <mat-card-content fxLayout="column" fxLayoutAlign="space-evenly center">
+
+        <form [formGroup]="createAccountForm" fxLayout="column" fxLayoutAlign="start center">
+          <mat-form-field appearance="outline">
+            <mat-label>Business name</mat-label>
+            <input matInput formControlName="businessName">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>User's first name</mat-label>
+            <input matInput formControlName="firstName">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>User's last name</mat-label>
+            <input matInput formControlName="lastName">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Create with template</mat-label>
+            <mat-select formControlName="template" name="template">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let account of templateAccounts$ | async" [value]="account">
+                {{account.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-slide-toggle formControlName="isTemplate">This is a template account</mat-slide-toggle>
+
+        </form>
+        <button
+          mat-raised-button color="accent"
+          (click)="createAccount()"
+          style="width: 100%; margin-top: 16px;"
+          [disabled]="createAccountForm.status === 'INVALID'">
+          Create Account
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div fxLayout="row wrap" fcLayoutAlign="start start" fxLayoutGap="16px" style="padding: 16px">
+  <app-business-card *ngFor="let account of accounts$ | async; trackBy: accountsTrackBy" [businessUid]="account.id" [routerLink]="['../account', account.id]"></app-business-card>
+</div>

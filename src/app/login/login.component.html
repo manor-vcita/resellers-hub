@@ -1,0 +1,18 @@
+<div style="height: 100%;" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card>
+    <mat-card-header fxLayout="column" fxLayoutAlign="center center" style="padding: 24px;">
+      <mat-card-title class="accent-color" style="text-align: center;">
+        {{emailSent ? 'Login link sent. Please check your inbox.'   : 'LOGIN WITH EMAIL'}}</mat-card-title>
+    </mat-card-header>
+    <mat-divider *ngIf="!emailSent"></mat-divider>
+    <mat-card-content style="padding: 24px;" *ngIf="!emailSent">
+      <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="24px" style="width: 400px;">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Email</mat-label>
+          <input #userEmail matInput value="manor@vcita.com">
+        </mat-form-field>
+        <button mat-raised-button color="accent" (click)="sendEmailLink(userEmail.value)" style="width: 100%;">SEND LOGIN LINK</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

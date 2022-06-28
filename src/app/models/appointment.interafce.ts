@@ -1,0 +1,36 @@
+export interface IVcitaAppointment {
+  id: string;
+  title: string;
+  notes: string;
+  start_time: string;
+  created_at: string;
+  updated_at: string;
+  interaction_type: string;
+  interaction_details: string;
+  duration: number;
+  price: string;
+  currency: string;
+  state: string;
+  service_id: string;
+  conversation_id: string;
+  client_id: string;
+  client_color_id: number;
+  client_first_name: string;
+  client_last_name: string;
+  staff_id: string;
+  staff_image?: null;
+  staff_display_name: string;
+  payment_id?: null;
+  type: string;
+  category_name?: null;
+  approval_mode: string;
+  is_recurring: boolean;
+  series_id?: null;
+  series_instance_count?: null;
+  image_url: string;
+  charge_type: string;
+  optional_times?: (null)[] | null;
+  payment_status?: null;
+  business_uid: string;
+  no_show: boolean;
+}

@@ -1,0 +1,67 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$vcita-hub-primary: mat.define-palette(mat.$indigo-palette);
+$vcita-hub-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$vcita-hub-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$vcita-hub-theme: mat.define-light-theme((
+  color: (
+    primary: $vcita-hub-primary,
+    accent: $vcita-hub-accent,
+    warn: $vcita-hub-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($vcita-hub-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Primary and accent colors
+
+.primary-color {
+  color: #3F51B5;
+}
+.accent-color {
+  color: #FF4081;
+}
+
+// Cards
+.center-card-header {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.stripe-shadow-1 {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px !important;
+}
+
+.enlarge-card:hover {
+  transform: scale(1.04);
+}
+
+.pointer {
+  cursor: pointer;
+}
